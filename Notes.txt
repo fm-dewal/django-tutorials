@@ -9,3 +9,4 @@ python3 manage.py sqlmigrate polls 0001
 python3 manage.py check
 python3 manage.py migrate
 python3 manage.py shell < test_models.py
+python3 manage.py createsuperuser (dewal/letmein123)
