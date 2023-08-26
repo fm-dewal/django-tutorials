@@ -50,9 +50,6 @@ class ResultsView(generic.DetailView):
     model = Question
     template_name = "polls/results.html"
 
-
-    
-
 def vote(request, ques_id):
     # response = "Vote for question %s."
     # return HttpResponse(response % ques_id)
