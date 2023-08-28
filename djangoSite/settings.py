@@ -31,6 +31,8 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'daphne',
+    'chat',
     'polls.apps.PollsConfig',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -68,8 +70,19 @@ TEMPLATES = [
     },
 ]
 
+# configure a production-grade HTTP server like nginx to route requests based on path to either 
+# (1) a production-grade WSGI server like Gunicorn+Django for ordinary HTTP requests or 
+# (2) a production-grade ASGI server like Daphne+Channels for WebSocket requests.
 WSGI_APPLICATION = 'djangoSite.wsgi.application'
-
+ASGI_APPLICATION = 'djangoSite.asgi.application'
+CHANNEL_LAYERS = {
+    "default": {
+        "BACKEND": "channels_redis.core.RedisChannelLayer",
+        "CONFIG": {
+            "hosts": [("127.0.0.1", 6379)],
+        },
+    },
+}
 
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
