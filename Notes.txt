@@ -18,3 +18,4 @@ sudo     apt install python3.10-venv
 pip install --upgrade attrs
 docker run --rm -p 6379:6379 redis:7
 python3 -m pip install channels_redis
+python3 -m pip install selenium
