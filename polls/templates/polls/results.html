@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<Html>
+
+<Head>
+</Head>
+
+<Body>
+    <h1>{{ question.question_text }}</h1>
+
+    <ul>
+        {% for choice in question.choice_set.all %}
+        <li>
+            {{ choice.choice }} -- {{ choice.tally }} tall{{ choice.tally|pluralize:'y,ies' }}
+        </li>
+        {% endfor %}
+    </ul>
+
+    <a href="{% url 'polls:detail' question.id %}">Vote again?</a>
+
+    <a href="{% url 'polls:index' %}">Index</a>
+</Body>
+
+</Html>
